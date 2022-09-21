@@ -1,26 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from "./Pages/Home/Home.page"
+import CollectionList from './Pages/CollectionList/CollectionList.page';
+import Header from './Component/header/header.component';
+import {ApolloProvider} from "@apollo/client";
+import client from './common/apollo-client';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import AnimeDetail from './Pages/AnimeDetail/AnimeDetail.page';
+import CollectionDetail from './Pages/CollectionDetail/CollectionDetail.page';
+
+export interface Props {
+
 }
 
-export default App;
+const Application: React.FunctionComponent<Props> = (props) => {
+    return (
+        <ApolloProvider client={client}>
+            <BrowserRouter>
+                <Header/>
+                <Routes>
+                    <Route path="/" element={<Home/>} />
+                    <Route path="/collection-list" element={<CollectionList/>} />
+                    <Route path="anime-detail/:index" element={<AnimeDetail/>}/>
+                    <Route path="collection/:name" element={<CollectionDetail/>}/>
+                    <Route path="collection/:name/:index" element={<AnimeDetail/>}/>
+                </Routes>
+            </BrowserRouter>
+        </ApolloProvider>
+    )
+};
+
+export default Application;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Home from "./Pages/Home/Home.page"
 import CollectionList from './Pages/CollectionList/CollectionList.page';
 import Header from './Component/header/header.component';
@@ -24,6 +24,7 @@ const Application: React.FunctionComponent<Props> = (props) => {
                     <Route path="anime-detail/:index" element={<AnimeDetail/>}/>
                     <Route path="collection/:name" element={<CollectionDetail/>}/>
                     <Route path="collection/:name/:index" element={<AnimeDetail/>}/>
+                    <Route path="/TokopediaAnimeCollection/" element={<Navigate to="/"/>}/>
                 </Routes>
             </BrowserRouter>
         </ApolloProvider>

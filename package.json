@@ -1,7 +1,7 @@
 {
   "name": "animecollection",
   "version": "0.1.0",
-  "homepage": "https://mshane911.github.io/TokopediaAnimeCollection",
+  "homepage": ".",
   "private": true,
   "dependencies": {
     "@apollo/client": "^3.6.9",

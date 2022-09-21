@@ -14,7 +14,7 @@ const SelectCollectionGridItem: React.FC<Props> = (props) => {
         if (collection.animes.length > 0){
             return collection.animes[0]?.bannerimage;
         }
-        return "/media/collection-default-image.jpg";
+        return "https://preview.redd.it/d8odt0lnmyj31.jpg?auto=webp&s=eb02efee5c08d18de8de88d6c01197284b19bc1b";
     }
 
     const StyledBannerImage = styled('img')`
